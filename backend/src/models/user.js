@@ -20,16 +20,33 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: ["student", "recruiter"],
-      default: "student",
       required: true,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
-    isBlocked: {
-      type: Boolean,
-      default: false,
+    profile: {
+      bio: {
+        type: String,
+        default: "",
+      },
+      skills: {
+        type: [String],
+        default: [],
+      },
+      resume: {
+        type: String,
+      },
+      resumeOriginalName: {
+        type: String,
+        default: "",
+      },
+      company: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Company",
+      },
+      profilePicture: {
+        type: String,
+        default: "",
+      },
+      
     },
   },
   {
